@@ -13,6 +13,10 @@ class Fsharp < Formula
   #depends_on 'pkg-config'
 
   def install
+
+    #pkg-config need to locate mono.pc
+    ENV.append 'PKG_CONFIG_LIBDIR', "/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
+
     system "./autogen.sh", "--prefix=#{prefix}"
 
     system "make"
