@@ -7,11 +7,9 @@ class Fsharp < Formula
   sha1 "7b83606f03e651d342520e17e23c3dbf18dc942f"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./autogen.sh", "--prefix=#{prefix}"
 
+    system "make"
     system "make", "install"
   end
 
