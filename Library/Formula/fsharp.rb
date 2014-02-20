@@ -6,9 +6,11 @@ class Fsharp < Formula
   url "https://github.com/fsharp/fsharp/archive/3.1.1.1.tar.gz"
   sha1 "7b83606f03e651d342520e17e23c3dbf18dc942f"
 
+  head 'https://github.com/enricosada/fsharp.git', :branch => 'homebrew31'
+
   depends_on :automake
   depends_on :autoconf
-  depends_on 'pkg-config'
+  #depends_on 'pkg-config'
 
   def install
     system "./autogen.sh", "--prefix=#{prefix}"
