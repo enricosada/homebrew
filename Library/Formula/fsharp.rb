@@ -8,6 +8,7 @@ class Fsharp < Formula
 
   depends_on :automake
   depends_on :autoconf
+  depends_on 'pkg-config'
 
   def install
     system "./autogen.sh", "--prefix=#{prefix}"
