@@ -6,7 +6,7 @@ class Fsharp < Formula
   url "https://github.com/fsharp/fsharp/archive/3.1.1.1.tar.gz"
   sha1 "7b83606f03e651d342520e17e23c3dbf18dc942f"
 
-  head 'https://github.com/enricosada/fsharp.git', :branch => 'homebrew31'
+  head 'https://github.com/fsharp/fsharp.git', :branch => 'master'
 
   depends_on :automake
   depends_on :autoconf
@@ -24,6 +24,6 @@ class Fsharp < Formula
   end
 
   test do
-    `system "#{bin}/fsharpc", "--help"`
+    `fsharpc --help`
   end
 end
