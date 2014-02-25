@@ -24,6 +24,7 @@ class Fsharp < Formula
   end
 
   test do
-    `fsharpc --help`
+    system "fsharpc", "--help"
+    system "fsharpi", "--help"
   end
 end
