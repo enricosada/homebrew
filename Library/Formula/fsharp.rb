@@ -24,7 +24,7 @@ class Fsharp < Formula
     system "./autogen.sh", "--prefix=#{prefix}"
 
     system "make"
-    system "make", "install"
+    system "sudo", "make", "install"
   end
 
   test do
