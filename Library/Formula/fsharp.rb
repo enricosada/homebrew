@@ -15,11 +15,12 @@ class Fsharp < Formula
   #depends_on 'pkg-config'
 
   def install
+    mono_dir = File.readlink("/Library/Frameworks/Mono.framework/Versions/Current")
 
     #pkg-config need to locate mono.pc
-    ENV.append 'PKG_CONFIG_LIBDIR', "/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/", ":"
+    ENV.append 'PKG_CONFIG_LIBDIR', "#{mono_dir}/lib/pkgconfig/", ":"
 
-    prefix = '/Library/Frameworks/Mono.framework/Versions/Current' if build.include? 'replace-mono-current'
+    prefix = mono_dir if build.include? 'replace-mono-current'
 
     system "./autogen.sh", "--prefix=#{prefix}"
 
