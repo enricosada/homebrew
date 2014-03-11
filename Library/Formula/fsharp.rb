@@ -8,22 +8,28 @@ class Fsharp < Formula
 
   head 'https://github.com/fsharp/fsharp.git', :branch => 'master'
 
+  option 'replace-mono-current', 'Replace Fsharp installed by Mono (version: Current)'
+
   depends_on :automake
   depends_on :autoconf
   #depends_on 'pkg-config'
 
   def install
+    mono_dir = File.readlink("/Library/Frameworks/Mono.framework/Versions/Current")
 
     #pkg-config need to locate mono.pc
-    ENV.append 'PKG_CONFIG_LIBDIR', "/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/", ":"
+    ENV.append 'PKG_CONFIG_LIBDIR', "#{mono_dir}/lib/pkgconfig/", ":"
+
+    prefix = mono_dir if build.include? 'replace-mono-current'
 
     system "./autogen.sh", "--prefix=#{prefix}"
 
     system "make"
-    system "make", "install"
+    system "sudo", "make", "install"
   end
 
   test do
-    `fsharpc --help`
+    system "fsharpc", "--help"
+    system "fsharpi", "--help"
   end
 end
