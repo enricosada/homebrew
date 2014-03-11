@@ -3,8 +3,8 @@ require "formula"
 class Fsharp < Formula
   homepage "http://fsharp.org/"
 
-  url "https://github.com/fsharp/fsharp/archive/3.1.1.1.tar.gz"
-  sha1 "7b83606f03e651d342520e17e23c3dbf18dc942f"
+  url "https://github.com/fsharp/fsharp/archive/3.1.1.6.tar.gz"
+  sha1 "f9bee238fa8701f742940291d0d3129673a39ebc"
 
   head 'https://github.com/fsharp/fsharp.git', :branch => 'master'
 
